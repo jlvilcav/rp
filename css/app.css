@@ -1,0 +1,50 @@
+body {
+	/*font-family: 'Montserrat', sans-serif;*/
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+}
+
+.titulo {
+	color: #1c5fac;
+	margin-bottom: 2em;
+    margin-top: 1em;
+}
+
+
+.filtro-container {
+	margin-bottom: 2em;
+}
+
+.filtro-container .container .row .form-control {
+	font-size: 14px;
+}
+
+.tabla {
+	overflow-x:auto;
+}
+
+
+.filtro-container .container .row {
+	margin-bottom: 1em;
+}
+
+@media (max-width: 543px) {
+
+	.titulo, .filtro-container, .contiene-tabla {
+		margin-left: 1rem;
+		margin-right: 1rem;
+	}
+
+	.filtro-container .container .row .label-xs{
+		margin-bottom: 1em;
+	}
+
+	.filtro-container .container .row {
+		margin-bottom: 0em;
+	}
+
+	.filtro-container .container .row button {
+		width: 100%;
+		margin-top: 1em;
+	}
+}
