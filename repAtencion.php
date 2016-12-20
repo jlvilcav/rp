@@ -12,14 +12,15 @@ $tick = new Ticket();
 $modelTick = new TicketModel();
 
 if(isset($_REQUEST['action']))
-{
-	if($_REQUEST['action'] == 'listar')
-	{
+{	
+	if($_REQUEST['action'] = 'listar')
+	{ 
 
 		if(isset($_REQUEST['dtDesde']) and isset($_REQUEST['dtHasta']) and isset($_REQUEST['agente']))  
 		{
-			$rTicket = $stf->ListarTicket($_REQUEST['dtDesde'], $_REQUEST['dtHasta'], $_REQUEST['agente']);
-			header('Location: index.php');
+			//echo "".$_REQUEST['agente'];
+			$rTicket = $modelTick->ListarTicket($_REQUEST['dtDesde'], $_REQUEST['dtHasta'], $_REQUEST['agente']);
+			//header('Location: repAtencion.php');
 		}
 		
 
@@ -81,7 +82,7 @@ if(isset($_REQUEST['action']))
 				<div class="row">				
 						<label for="" class="col-xs-3 col-sm-1 col-form-label">Agent:</label>
 						<div class="col-xs-9 col-sm-11">
-							<select name="agente" class="form-control">
+							<select name="agente" class="form-control" id="agente">
 							  	<option value="-1"> -- Todos -- </option> 
 				
 								<?php 	
@@ -106,7 +107,7 @@ if(isset($_REQUEST['action']))
 
 				<div class="row ">
 					<div class="col-xs-12 col-sm-2 ">
-						<button class="btn btn-primary form-text">
+						<button class="btn btn-primary form-text" id="btnBuscar" name="btnBuscar">
 							Buscar
 						</button>					
 					</div>
@@ -141,57 +142,26 @@ if(isset($_REQUEST['action']))
 				    <tbody>
 				        
 						<?php 	
-								//echo 'alert("Hola")';
+								;
 								if (isset($rTicket))
 								{
 									foreach($rTicket as $r){
 									echo ("<tr> \n");
-									echo ("<td>".utf8_encode($r->__GET('number'))."</td> \n");
-									echo ("<td>".utf8_encode($r->__GET('nombre'))."</td> \n");
-									echo ("<td>".utf8_encode($r->__GET('asunto'))."</td> \n");
-									echo ("<td>".utf8_encode($r->__GET('Tipo_Req'))."</td> \n");
-									echo ("<td>".utf8_encode($r->__GET('Estado'))."</td> \n");
-									echo ("<td>".utf8_encode($r->__GET('Fec_inicio'))."</td> \n");
-									echo ("<td>".utf8_encode($r->__GET('Fec_ciere'))."</td> \n");
-									echo ("</tr> \n");
-									//echo('<option value="'.$r->__GET('staff_id').'">'.utf8_encode($r->__GET('nombre')).'</option>');
-								} 
+									echo ("<td>".utf8_encode($r->__GET('number'))."</td> ");
+									echo ("<td>".utf8_encode($r->__GET('nombre'))."</td> ");
+									echo ("<td>".utf8_encode($r->__GET('asunto'))."</td> ");
+									echo ("<td>".utf8_encode($r->__GET('Tipo_Req'))."</td> ");
+									echo ("<td>".utf8_encode($r->__GET('estado'))."</td> ");
+									echo ("<td>".utf8_encode($r->__GET('Fec_inicio'))."</td> ");
+									echo ("<td>".utf8_encode($r->__GET('Fec_ciere'))."</td> ");
+									echo ("</tr> ");
+									} 
 								}
 								
-											
-								/*endforeach;*/
 
 								?>
 
-						<!-- 
-				        <tr>
-				            <td>1</td>
-				            <td>Rocky</td>
-				            <td>Balboa</td>
-				            <td>rockybalboa@mail.com</td>
-				            <td>Rocky</td>
-				            <td>Balboa</td>
-				            <td>rockybalboa@mail.com</td>
-				        </tr>
-				        <tr>
-				            <td>2</td>
-				            <td>Peter</td>
-				            <td>Parker</td>
-				            <td>peterparker@mail.com</td>
-				            <td>Rocky</td>
-				            <td>Balboa</td>
-				            <td>rockybalboa@mail.com</td>
-				        </tr>
-				        <tr>
-				            <td>3</td>
-				            <td>John</td>
-				            <td>Rambo</td>
-				            <td>johnrambo@mail.com</td>
-				            <td>Rocky</td>
-				            <td>Balboa</td>
-				            <td>rockybalboa@mail.com</td>
-				        </tr>
-							-->
+						
 				    </tbody>
 				</table>
 			</div>

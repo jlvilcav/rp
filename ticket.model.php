@@ -42,6 +42,7 @@ class TicketModel
 										where z1.created BETWEEN '".$fecIni."' AND '".$fecFin."' and st.staff_id =".$idAgent." 
 										order by z1.created");
 			} else {
+					
 				$stm = $this->pdo->prepare("Select  z1.ticket_id, 
 										z1.created Fec_inicio, 
 										DATE(z1.created) fecha, DAY('%H:%I:%S' ) hora, 
@@ -57,8 +58,8 @@ class TicketModel
 										inner join ost_ticket_status tst on tst.id = z1.status_id
 										inner join ost_help_topic topic on topic.topic_id = z1.topic_id
 										left join ost_ticket_event eve on eve.ticket_id = z1.ticket_id and eve.state = 'closed'
-										where z1.created BETWEEN '".$fecIni."' AND '".$fecFin." order by z1.created");
-			}
+										where z1.created BETWEEN '".$fecIni."' AND '".$fecFin."' order by z1.created");
+			}/**/
 			
 			$stm->execute();
 
@@ -70,7 +71,7 @@ class TicketModel
 				$alm->__SET('number', $r->number);
 				$alm->__SET('asunto', $r->asunto);
 				$alm->__SET('Tipo_Req', $r->Tipo_Req);
-				$alm->__SET('estado', $r->Estado);
+				$alm->__SET('estado', $r->estado);
 				$alm->__SET('Fec_inicio', $r->Fec_inicio);
 				$alm->__SET('Fec_ciere', $r->Fec_ciere);
 				$alm->__SET('nombre', $r->nombre);
